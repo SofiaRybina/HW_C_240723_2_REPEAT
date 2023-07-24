@@ -3,18 +3,25 @@
 // 782 -> 8
 // 918 -> 1
 
-Console.WriteLine("Enter a three-digit number: ");
-int num = int.Parse(Console.ReadLine()!);
-int lognum = 0;
-int secnum = 0;
-
-if(100 <= num && num <= 999 || -999 <= num && num <= -100)
+int Prompt(string message)
 {
-    lognum = num % 100;
-    secnum = lognum / 10;
+    System.Console.Write(message);
+    string value = Console.ReadLine()!;
+    int result = Convert.ToInt32(value);
+    return result;
+}
+
+int num = Prompt("Enter a three-digit number: ");
+
+if (100 <= num && num <= 999 || -999 <= num && num <= -100)
+{
+    int lognum = num % 100;
+    int secnum = lognum / 10;
     Console.WriteLine($"{num} -> {Math.Abs(secnum)}");
 }
 else
 {
     Console.WriteLine("Wrong number! Input XXX. Example: 785");
 }
+
+
